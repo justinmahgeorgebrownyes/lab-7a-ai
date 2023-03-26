@@ -1,21 +1,21 @@
-#include "AttackAction.h"
+#include "MoveToLOSAction.h"
 #include <iostream>
-AttackAction::AttackAction()
+MoveToLOSAction::MoveToLOSAction()
 {
-	m_name = "Attack Action";
+	m_name = "Move To LOS Action";
 }
 
-AttackAction::~AttackAction()
+MoveToLOSAction::~MoveToLOSAction()
 = default;
 
-void AttackAction::Action()
+void MoveToLOSAction::Action()
 {
 
-    if (GetAgent()->GetActionState() != ActionState::ATTACK)
+    if (GetAgent()->GetActionState() != ActionState::MOVE_TO_LOS)
     {
 
         std::cout << "Performing " << m_name << std::endl;
-        GetAgent()->SetActionState(ActionState::ATTACK);
+        GetAgent()->SetActionState(ActionState::MOVE_TO_LOS);
     }
 
 

@@ -1,21 +1,21 @@
-#include "AttackAction.h"
+#include "MoveToPlayerAction.h"
 #include <iostream>
-AttackAction::AttackAction()
+MoveToPlayerAction::MoveToPlayerAction()
 {
-	m_name = "Attack Action";
+	m_name = "Move To Player Action";
 }
 
-AttackAction::~AttackAction()
+MoveToPlayerAction::~MoveToPlayerAction()
 = default;
 
-void AttackAction::Action()
+void MoveToPlayerAction::Action()
 {
 
-    if (GetAgent()->GetActionState() != ActionState::ATTACK)
+    if (GetAgent()->GetActionState() != ActionState::MOVE_TO_PLAYER)
     {
 
         std::cout << "Performing " << m_name << std::endl;
-        GetAgent()->SetActionState(ActionState::ATTACK);
+        GetAgent()->SetActionState(ActionState::MOVE_TO_PLAYER);
     }
 
 

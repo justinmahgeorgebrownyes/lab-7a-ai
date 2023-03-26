@@ -1,21 +1,21 @@
-#include "AttackAction.h"
+#include "PatrolAction.h"
 #include <iostream>
-AttackAction::AttackAction()
+PatrolAction::PatrolAction()
 {
-	m_name = "Attack Action";
+	m_name = "Patrol Action";
 }
 
-AttackAction::~AttackAction()
+PatrolAction::~PatrolAction()
 = default;
 
-void AttackAction::Action()
+void PatrolAction::Action()
 {
 
-    if (GetAgent()->GetActionState() != ActionState::ATTACK)
+    if (GetAgent()->GetActionState() != ActionState::PATROL)
     {
 
         std::cout << "Performing " << m_name << std::endl;
-        GetAgent()->SetActionState(ActionState::ATTACK);
+        GetAgent()->SetActionState(ActionState::PATROL);
     }
 
 

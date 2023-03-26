@@ -1,14 +1,14 @@
 #pragma once
-#ifndef __ATTACK_ACTION__
-#define __ATTACK_ACTION__
+#ifndef __MOVE_TO_PLAYER_ACTION__
+#define __MOVE_TO_PLAYER_ACTION__
 
 #include "ActionNode.h"
 
-class AttackAction : public ActionNode
+class MoveToPlayerAction : public ActionNode
 {
 public:
-    AttackAction();
-    virtual ~AttackAction();
+    MoveToPlayerAction();
+    virtual ~MoveToPlayerAction();
     virtual void Action() override; // Delline our action here
 };
-#endif /* defined (__ATTACK_ACTION__) */
+#endif /* defined (__MOVE_TO_PLAYER_ACTION__) */

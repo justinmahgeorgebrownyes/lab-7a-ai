@@ -1,14 +1,14 @@
 #pragma once
-#ifndef __ATTACK_ACTION__
-#define __ATTACK_ACTION__
+#ifndef __PATROL_ACTION__
+#define __PATROL_ACTION__
 
 #include "ActionNode.h"
 
-class AttackAction : public ActionNode
+class PatrolAction : public ActionNode
 {
 public:
-    AttackAction();
-    virtual ~AttackAction();
+    PatrolAction();
+    virtual ~PatrolAction();
     virtual void Action() override; // Delline our action here
 };
-#endif /* defined (__ATTACK_ACTION__) */
+#endif /* defined (__PATROL_ACTION__) */

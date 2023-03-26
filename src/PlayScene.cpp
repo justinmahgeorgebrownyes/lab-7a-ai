@@ -88,6 +88,11 @@ void PlayScene::Start()
 	m_setPathNodeLOSDistance(m_pathNodeLOSDistance);
 
 	// Add Game Objects
+	m_pBackground = new Background();
+	AddChild(m_pBackground, 0);
+
+
+
 	m_pTarget = new Target();
 	m_pTarget->GetTransform()->position = glm::vec2(550.0f, 300.0f);
 	AddChild(m_pTarget, 2);

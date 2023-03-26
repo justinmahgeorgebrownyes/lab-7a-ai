@@ -9,6 +9,9 @@
 #include "StarShip.h"
 #include "PathNode.h"
 
+//new for lab 7.133
+#include "Background.h"
+#include "DecisionTree.h"
 
 class PlayScene : public Scene
 {
@@ -34,6 +37,10 @@ private:
 	StarShip* m_pStarShip;
 	std::vector<Obstacle*> m_pObstacles;
 
+
+	// new for lab 7.12
+	Background* m_pBackground;
+
 	void BuildObstaclePool();
 
 	// Create our Division Scheme (Grid of PathNodes)
@@ -56,6 +63,8 @@ private:
 	// Debugging Variables
 	bool m_bDebugView;
 
+	//decision tree
+	DecisionTree* m_decisionTree;
 
 };
 

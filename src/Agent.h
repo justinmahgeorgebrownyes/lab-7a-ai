@@ -4,6 +4,7 @@
 
 #include <glm/vec4.hpp>
 #include "NavigationObject.h"
+#include "ActionState.h"
 
 class Agent : public NavigationObject
 {
@@ -30,9 +31,16 @@ public:
 	[[nodiscard]] glm::vec2 GetRightLOSEndPoint() const;
 	[[nodiscard]] glm::vec2 GetRightRightLOSEndPoint() const;
 
+
 	bool* GetCollisionWhiskers(); // Returns the entire array
 	glm::vec4 GetLineColour(int index) const;
 	float GetWhiskerAngle() const;
+
+
+	// New for Lab 7.1
+	ActionState GetActionState() const;
+	void SetActionState(ActionState state);
+
 
 	// setters
 	void SetTargetPosition(glm::vec2 new_position);

@@ -50,6 +50,10 @@ void PlayScene::Update()
 		m_checkAllNodesWithBoth();
 		break;
 	}
+
+	//decision makes
+	m_decisionTree->MakeDecision();
+
 }
 
 void PlayScene::Clean()
@@ -94,11 +98,11 @@ void PlayScene::Start()
 
 
 	m_pTarget = new Target();
-	m_pTarget->GetTransform()->position = glm::vec2(550.0f, 300.0f);
+	m_pTarget->GetTransform()->position = glm::vec2(500.0f, 300.0f);
 	AddChild(m_pTarget, 2);
 
 	m_pStarShip = new StarShip();
-	m_pStarShip->GetTransform()->position = glm::vec2(150.0f, 300.0f);
+	m_pStarShip->GetTransform()->position = glm::vec2(400.0f, 40.0f);
 	AddChild(m_pStarShip, 2);
 
 	// Add Obstacles
@@ -109,12 +113,29 @@ void PlayScene::Start()
 	m_buildGrid();
 	m_toggleGrid(m_isGridEnabled);
 
+
+	// setup decision tree
+	m_decisionTree = new DecisionTree(m_pStarShip);
+	m_decisionTree->Display();
+	m_decisionTree->MakeDecision();
+
+
 	// Preload Sounds
 
 	SoundManager::Instance().Load("../Assets/Audio/yay.ogg", "yay", SoundType::SOUND_SFX);
 	SoundManager::Instance().Load("../Assets/Audio/thunder.ogg", "thunder", SoundType::SOUND_SFX);
 
+
+	//preload music
+	SoundManager::Instance().Load("../Assets/Audio/Mutara.mp3", "mutara", SoundType::SOUND_MUSIC);
+	SoundManager::Instance().SetMusicVolume(16);
+
+	//play music
+	SoundManager::Instance().PlayMusic("mutara");
+
+
 	ImGuiWindowFrame::Instance().SetGuiFunction(std::bind(&PlayScene::GUI_Function, this));
+
 }
 
 void PlayScene::GUI_Function()

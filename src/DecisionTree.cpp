@@ -131,16 +131,16 @@ void DecisionTree::m_buildTree()
     dynamic_cast<ActionNode*>(patrolNode)->SetAgent(m_agent);
     m_treeNodeList.push_back(patrolNode);
 
-    TreeNode* moveToLOSNode = AddNode(m_RadiusNode, new PatrolAction(), TreeNodeType::LEFT_TREE_NODE);
-    dynamic_cast<ActionNode*>(patrolNode)->SetAgent(m_agent);
+    TreeNode* moveToLOSNode = AddNode(m_RadiusNode, new MoveToLOSAction(), TreeNodeType::RIGHT_TREE_NODE);
+    dynamic_cast<ActionNode*>(moveToLOSNode)->SetAgent(m_agent);
     m_treeNodeList.push_back(moveToLOSNode);
 
     // right sub-tree
-    TreeNode* moveToPlayerNode = AddNode(m_RadiusNode, new MoveToPlayerAction(), TreeNodeType::LEFT_TREE_NODE);
+    TreeNode* moveToPlayerNode = AddNode(m_CloseCombatNode, new MoveToPlayerAction(), TreeNodeType::LEFT_TREE_NODE);
     dynamic_cast<ActionNode*>(moveToPlayerNode)->SetAgent(m_agent);
     m_treeNodeList.push_back(moveToPlayerNode);
 
-    TreeNode* attackNode = AddNode(m_RadiusNode, new AttackAction(), TreeNodeType::LEFT_TREE_NODE);
+    TreeNode* attackNode = AddNode(m_CloseCombatNode, new AttackAction(), TreeNodeType::RIGHT_TREE_NODE);
     dynamic_cast<ActionNode*>(attackNode)->SetAgent(m_agent);
     m_treeNodeList.push_back(attackNode);
 }

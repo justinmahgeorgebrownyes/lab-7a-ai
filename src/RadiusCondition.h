@@ -1,21 +1,21 @@
 #pragma once
 
-#ifndef __CLOSE_COMBAT_CONDITION__
+#ifndef __RADIUS_CONDITION__
 
-#define __CLOSE_COMBAT_CONDITION__
+#define __RADIUS_CONDITION__
 
 #include "ConditionNode.h"
 
-    class CloseCombatCondition : public ConditionNode
+    class RadiusCondition : public ConditionNode
     {
     public:
-        CloseCombatCondition(bool within_combat_range = false);
-        virtual ~CloseCombatCondition();
+        RadiusCondition(bool within_radius= false);
+        virtual ~RadiusCondition();
         // Setter
-        void SetIsWithinCombatRange(bool state);
+        void SetIsWithinRadius(bool state);
         virtual bool Condition() override;
     private:
-        bool m_isWithinCombatRange{};
+        bool m_isWithinRadius{};
 
     };
 

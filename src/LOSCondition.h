@@ -1,22 +1,21 @@
 #pragma once
 
-#ifndef __CLOSE_COMBAT_CONDITION__
-
-#define __CLOSE_COMBAT_CONDITION__
+#ifndef __LOS_CONDITION__
+#define __LOS_CONDITION__
 
 #include "ConditionNode.h"
 
-    class CloseCombatCondition : public ConditionNode
+    class LOSCondition : public ConditionNode
     {
     public:
-        CloseCombatCondition(bool within_combat_range = false);
-        virtual ~CloseCombatCondition();
+        LOSCondition(bool LOS = false);
+        virtual ~LOSCondition();
         // Setter
-        void SetIsWithinCombatRange(bool state);
+        void SetLOS(bool state);
         virtual bool Condition() override;
     private:
-        bool m_isWithinCombatRange{};
+        bool m_hasLOS{};
 
     };
 
-#endif /* defined (__CLOSE_COMBAT_CONDITION__) */
+#endif /* defined (__LOS_CONDITION__) */

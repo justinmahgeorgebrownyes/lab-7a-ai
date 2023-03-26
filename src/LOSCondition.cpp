@@ -1,9 +1,20 @@
-#include "CloseCombatCondition.h"
+#include "LOSCondition.h"
 
-CloseCombatCondition::CloseCombatCondition(bool within_combat_range)
+LOSCondition::LOSCondition(bool LOS)
 {
+	m_name = "LOS condition";
+	SetLOS(LOS);
 }
 
-void CloseCombatCondition::SetIsWithinCombatRange(bool state)
+LOSCondition::~LOSCondition()
+= default;
+
+
+void LOSCondition::SetLOS(bool state)
 {
+	m_hasLOS = state;
+}
+
+bool LOSCondition::Condition() {
+	return m_hasLOS;
 }

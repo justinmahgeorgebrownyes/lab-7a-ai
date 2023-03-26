@@ -1,9 +1,19 @@
-#include "CloseCombatCondition.h"
+#include "RadiusCondition.h"
 
-CloseCombatCondition::CloseCombatCondition(bool within_combat_range)
-{
+RadiusCondition::RadiusCondition (bool within_radius){
+	m_name = "radius condition";
+	SetIsWithinRadius(within_radius);
 }
 
-void CloseCombatCondition::SetIsWithinCombatRange(bool state)
+RadiusCondition::~RadiusCondition()
+= default;
+
+
+void RadiusCondition::SetIsWithinRadius(bool state)
 {
+	m_isWithinRadius= state;
+}
+
+bool RadiusCondition::Condition() {
+	return m_isWithinRadius;
 }

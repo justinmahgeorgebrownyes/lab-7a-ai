@@ -106,11 +106,12 @@ float Agent::GetWhiskerAngle() const
 
 ActionState Agent::GetActionState() const
 {
-	return ActionState();
+	return m_actionState;
 }
 
 void Agent::SetActionState(ActionState state)
 {
+	m_actionState = state;
 }
 
 void Agent::SetLeftLOSEndPoint(const glm::vec2 point)

@@ -84,6 +84,8 @@ private:
 	bool m_collisionWhiskers[5];
 	float m_whiskerAngle;
 
+	// new lab 7.1
+	ActionState m_actionState;
 };
 
 
